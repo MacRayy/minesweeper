@@ -1,122 +1,131 @@
 'use strict'
 
 /*
-  Let's Code BP! - Minesweeper Workshop
+	Let's Code BP! - Minesweeper Workshop
 
-  You will need to code in this file, test results are displayed in the console.
+	You will need to code in this file, test results are displayed in the console.
 
-  Board: 2d Array containing cells
-  Example:
-  [
-  [{"nearbyMines":0},{"nearbyMines":1},{"nearbyMines":1}],
-  [{"nearbyMines":0},{"nearbyMines":2},{"mine":true}],
-  [{"nearbyMines":0},{"nearbyMines":2},{"mine":true}]
-  ]
+	Board: 2d Array containing cells
+	Example:
+	[
+	[{"nearbyMines":0},{"nearbyMines":1},{"nearbyMines":1}],
+	[{"nearbyMines":0},{"nearbyMines":2},{"mine":true}],
+	[{"nearbyMines":0},{"nearbyMines":2},{"mine":true}]
+	]
 
-  Cell: object
-  Properties:
-    nearbyMines: Integer (0-8)
-    mine: Boolean
-    flag: Boolean
-    shouldShow: Boolean
-    reveal: Boolean
+	Cell: object
+	Properties:
+		nearbyMines: Integer (0-8)
+		mine: Boolean
+		flag: Boolean
+		shouldShow: Boolean
+		reveal: Boolean
  */
 
 function generateNewBoard(rowCount , columnCount, mineCountToGenerate){
-  /*
-    IN: rowCount (integer), columnCount (integer), mineCountToGenerate (integer)
-    OUT: board (2d array), contains cells (object) {mine: Boolean, Integer}
-    DESC: Crerates a board, fills it with mines, and calculates nearby mine counts for cells
-  */
+	/*
+		IN: rowCount (integer), columnCount (integer), mineCountToGenerate (integer)
+		OUT: board (2d array), contains cells (object) {mine: Boolean, Integer}
+		DESC: Crerates a board, fills it with mines, and calculates nearby mine counts for cells
+	*/
 
-  // create empty board
+	// create empty board
+	let board = []
+	for (let row = 0; row < config.rows; row++) {
+		board.push([])
+		for (var col = 0; col < config.columns; col++) {
+			board[row].push({"nearbyMines":0})
+		}
+	}
+	console.log(board)
+	return board
 
-  // add mines to the board
-  // TODO: write and use generateMineCoordinates function
+	// add mines to the board
+	// TODO: write and use generateMineCoordinates function
 
-  // calculate nearby mine counts
-  // TODO: write and use calculateNearbyMines function
+	// calculate nearby mine counts
+	// TODO: write and use calculateNearbyMines function
 }
 
 function generateMineCoordinates(columns, rows, mineCountToGenerate){
-  /*
-    IN: rowCount (integer), columnCount (integer), mineCountToGenerate (integer)
-    OUT: mineCoordinates (array), contains coordinate of mines: [[3,4],[4,6]]
-    DESC: Crerates an array, that contains the coordinates of all the mines. All mine have to be unique coordinate.
-  */
+	/*
+		IN: rowCount (integer), columnCount (integer), mineCountToGenerate (integer)
+		OUT: mineCoordinates (array), contains coordinate of mines: [[3,4],[4,6]]
+		DESC: Crerates an array, that contains the coordinates of all the mines. All mine have to be unique coordinate.
+	*/
 
-  // generate random coordinates until reach the necessary number of mines.
+	// generate random coordinates until reach the necessary number of mines.
 
-  // check if the new generated coordinate is unique
+	// check if the new generated coordinate is unique
 }
 
 function calculateNearbyMines(rowIndex, columnIndex, board){
-  /*
-    IN: rowCount (integer), columnCount (integer), board (2d array)
-    OUT: cell (object) posible value {"nearbyMines":0..8} or {"mine":true}
-    DESC: Creates an object, that contains the information regarding one cell
-  */
+	/*
+		IN: rowCount (integer), columnCount (integer), board (2d array)
+		OUT: cell (object) posible value {"nearbyMines":0..8} or {"mine":true}
+		DESC: Creates an object, that contains the information regarding one cell
+	*/
 
-  // Use getNearbyCells helper function to get all the nearby cells
-  // count the ones that have mines
+	// Use getNearbyCells helper function to get all the nearby cells
+	// count the ones that have mines
 }
 
 function getNearbyCells(rowIndex, columnIndex, board){
-  /*
-    IN: rowIndex (integer), columnIndex (integer), board (2d array)
-    OUT: list of cells
-    DESC: return cells that share an edge or a corner with the input cell
-  */
+	/*
+		IN: rowIndex (integer), columnIndex (integer), board (2d array)
+		OUT: list of cells
+		DESC: return cells that share an edge or a corner with the input cell
+	*/
 }
 
 function handleClick(event){
-  /*
-    IN: event left click
-    OUT: void
-    DESC: based on mouse click's place recalculate table and render it
-    SIDEEFFECT: re-renders the board
-  */
+	/*
+		IN: event left click
+		OUT: void
+		DESC: based on mouse click's place recalculate table and render it
+		SIDEEFFECT: re-renders the board
+	*/
 
-  // use pixelToCoordinates helper to get the coordinate
+	// use pixelToCoordinates helper to get the coordinate
 
-  //use the move function to evaluate the action
+	//use the move function to evaluate the action
 
-  //render the board
+	//render the board
 }
 
 function handleRightClick(event){
-  /*
-    IN: event right click
-    OUT: void
-    DESC: based on the mouse click's place toggle cell.flag if necessary
-    SIDEEFFECT: re-renders the board
-  */
-  // hint event.preventDefault() could be useful
+	/*
+		IN: event right click
+		OUT: void
+		DESC: based on the mouse click's place toggle cell.flag if necessary
+		SIDEEFFECT: re-renders the board
+	*/
+	// hint event.preventDefault() could be useful
 }
 
 function move(x, y, board){
-  /*
-    IN: x (integer), y (integer), board (2d array)
-    OUT: board (2d array), contains cells (object) {mine: Boolean, Integer}
-    DESC: apply changes to the game state based on the clicked cells content
-  */
+	/*
+		IN: x (integer), y (integer), board (2d array)
+		OUT: board (2d array), contains cells (object) {mine: Boolean, Integer}
+		DESC: apply changes to the game state based on the clicked cells content
+	*/
 
-  // if the cell has a mine, the game is lost
-  // show this cell, reveal all cells
+	// if the cell has a mine, the game is lost
+	// show this cell, reveal all cells
 
-  // if cells has no mines nearby, show nearby cells, use showNearbyCells function
+	// if cells has no mines nearby, show nearby cells, use showNearbyCells function
 
-  // show this cell only
+	// show this cell only
 }
 
 function showNearbyCells(x, y, board){
-  /*
-    IN: x (integer), y (integer), board (2d array)
-    OUT: board or void
-    DESC: recrusivley check nearby cells and show them if empty
-  */
+	/*
+		IN: x (integer), y (integer), board (2d array)
+		OUT: board or void
+		DESC: recrusivley check nearby cells and show them if empty
+	*/
 
-  // use getNearbyCells from helper
+	// use getNearbyCells from helper
 }
 
 /*
