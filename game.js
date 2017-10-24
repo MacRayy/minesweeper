@@ -33,18 +33,19 @@ function generateNewBoard(rowCount , columnCount, mineCountToGenerate){
 	let board = []
 	for (let row = 0; row < config.rows; row++) {
 		board.push([])
-		for (var col = 0; col < config.columns; col++) {
-			board[row].push({"nearbyMines":0})
+		for (let col = 0; col < config.columns; col++) {
+			board[row].push({'nearbyMines': 0})
 		}
 	}
-	console.log(board)
-	return board
 
 	// add mines to the board
 	// TODO: write and use generateMineCoordinates function
 
 	// calculate nearby mine counts
 	// TODO: write and use calculateNearbyMines function
+	generateMineCoordinates()
+
+	return board
 }
 
 function generateMineCoordinates(columns, rows, mineCountToGenerate){
@@ -53,10 +54,20 @@ function generateMineCoordinates(columns, rows, mineCountToGenerate){
 		OUT: mineCoordinates (array), contains coordinate of mines: [[3,4],[4,6]]
 		DESC: Crerates an array, that contains the coordinates of all the mines. All mine have to be unique coordinate.
 	*/
+	let mines = []
+
+	for (let i = 0; i < config.mineCount; i++) {
+		let mine = []
+		mine = [Math.floor(Math.random() * config.rows), Math.floor(Math.random() * config.columns)]
+		mines.push(mine)
+	}
 
 	// generate random coordinates until reach the necessary number of mines.
 
 	// check if the new generated coordinate is unique
+
+	console.log(mines)
+	return mines
 }
 
 function calculateNearbyMines(rowIndex, columnIndex, board){
