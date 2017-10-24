@@ -55,11 +55,17 @@ function generateMineCoordinates(columns, rows, mineCountToGenerate){
 		DESC: Crerates an array, that contains the coordinates of all the mines. All mine have to be unique coordinate.
 	*/
 	let mines = []
+	let usedCoords = {}
 
-	for (let i = 0; i < config.mineCount; i++) {
+	while (mines.length < config.mineCount) {
 		let mine = []
 		mine = [Math.floor(Math.random() * config.rows), Math.floor(Math.random() * config.columns)]
-		mines.push(mine)
+		let coord = String(mine)
+
+		if (!(coord in usedCoords)) {
+			usedCoords[coord] = true
+			mines.push(mine)
+		}
 	}
 
 	// generate random coordinates until reach the necessary number of mines.
